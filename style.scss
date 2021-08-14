@@ -1,0 +1,192 @@
+// new todo
+//colors
+$white-clr: #ffffff;
+//lightModeColors
+$lM-bg-clr: #FAFAFA;
+$lm-sec-clr: #9495A5;
+$lm-todoInput-clr: #393A4B;
+$lm-bod-clr: #E3E4F1;
+$lm-cls-clr: #494C6B;
+$lm-bx-sd: 0px 35px 50px -15px #C2C3D680;
+$todoUl_bx-sd: 0px 4px 4px 0px #00000040;
+//darkModeColors
+$dM-bg-clr: #171823;
+$dm-pri-clr: #25273D;
+$dm-todoInput-clr: #C8CBE7;
+$dm-bod-clr: #393A4B;
+$dm-bx-sd: 0px 35px 50px -15px #00000080;
+html body {
+    background-color: $lM-bg-clr;
+}
+
+#moonIcon {
+    cursor: pointer;
+    font-size: 21px;
+}
+
+div .header {
+    color: $white-clr;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+}
+
+.bcg-img img {
+    z-index: -9999;
+    position: absolute;
+}
+
+#todo {
+    height: 4rem;
+    width: 100%;
+    max-width: 34rem;
+    border-radius: 5px;
+    margin: 0 auto;
+    font-size: 18px;
+    input {
+        outline: none;
+        border: none;
+        width: 100%;
+        text-indent: 20px;
+    }
+}
+
+.checkbox {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    margin-left: 10px;
+}
+
+.bi-circle {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    margin: 0 10px 0 10px;
+}
+
+.todo_container {
+    .todo_ul {
+        border-radius: 4px;
+        width: 100%;
+        max-width: 34rem;
+        padding: 0px;
+        margin-top: 2rem;
+        .todo_item {
+            list-style: none;
+            padding: 10px 0;
+            font-size: 18px;
+            button:nth-child(2) {
+                float: right;
+            }
+            button {
+                padding: 0px;
+                padding-right: 5px;
+                background-color: transparent;
+                border: none;
+                .bi-x {
+                    font-size: 25px;
+                    color: $lm-cls-clr;
+                    // float: right;
+                }
+            }
+        }
+    }
+}
+
+
+/* TODO COMPLETED */
+
+.completedItem {
+    text-decoration: line-through;
+    opacity: 0.5;
+    // transform: scale(0.96);
+}
+
+.light_mode {
+    #todo {
+        background-color: $white-clr;
+        box-shadow: $lm-bx-sd;
+        .checkbox {
+            background: $lm-bod-clr;
+        }
+        .checkbox:hover {
+            background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%) border-box;
+        }
+        input::selection {
+            background: #55DDFF;
+            color: $white-clr;
+        }
+        input::placeholder {
+            color: $lm-sec-clr;
+        }
+        input {
+            color: $lm-todoInput-clr;
+        }
+    }
+    .todo_container {
+        .todo_ul {
+            background-color: $white-clr;
+            box-shadow: $todoUl_bx-sd;
+            .todo_item:nth-last-child(1) {
+                border-bottom: none;
+            }
+            .todo_item {
+                border-bottom: 1px $lm-bod-clr solid;
+                .checklist_btn {
+                    .bi-circle:hover {
+                        background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%) border-box;
+                    }
+                    .bi-circle {
+                        background: $lm-bod-clr;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.dark_mode {
+    #todo {
+        background-color: $dm-pri-clr;
+        box-shadow: $dm-bx-sd;
+        .checkbox {
+            background: $dm-bod-clr;
+        }
+        .checkbox:hover {
+            background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%) border-box;
+        }
+        input {
+            background: $dm-pri-clr;
+            color: $dm-todoInput-clr;
+        }
+    }
+    .todo_container {
+        .todo_ul {
+            background-color: $dm-pri-clr;
+            box-shadow: $todoUl_bx-sd;
+            .todo_item:nth-last-child(1) {
+                border-bottom: none;
+            }
+            .todo_item {
+                border-bottom: 1px $dm-bod-clr solid;
+                color: $dm-todoInput-clr;
+                .checklist_btn {
+                    .bi-circle:hover {
+                        background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%) border-box;
+                    }
+                    .bi-circle {
+                        background: $dm-bod-clr;
+                    }
+                }
+            }
+        }
+    }
+}
