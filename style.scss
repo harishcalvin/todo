@@ -15,6 +15,7 @@ $dm-pri-clr: #25273D;
 $dm-todoInput-clr: #C8CBE7;
 $dm-bod-clr: #393A4B;
 $dm-bx-sd: 0px 35px 50px -15px #00000080;
+$dm-sec-clr: #5B5E7E;
 html body {
     background-color: $lM-bg-clr;
 }
@@ -72,13 +73,30 @@ div .header {
     margin: 0 10px 0 10px;
 }
 
+.todo_stats {
+    margin: 0 auto;
+    padding: 0rem;
+    width: 100%;
+    max-width: 34rem;
+    border-radius: 0px 0px 4px 4px;
+    p {
+        margin: 0rem;
+        padding: 0rem;
+    }
+    button {
+        border: none;
+        background: transparent;
+    }
+}
+
 .todo_container {
     .todo_ul {
-        border-radius: 4px;
+        border-radius: 4px 4px 0px 0px;
         width: 100%;
         max-width: 34rem;
         padding: 0px;
         margin-top: 2rem;
+        margin-bottom: 0px;
         .todo_item {
             list-style: none;
             padding: 10px 0;
@@ -113,7 +131,6 @@ div .header {
 .light_mode {
     #todo {
         background-color: $white-clr;
-        box-shadow: $lm-bx-sd;
         .checkbox {
             background: $lm-bod-clr;
         }
@@ -135,9 +152,9 @@ div .header {
         .todo_ul {
             background-color: $white-clr;
             box-shadow: $todoUl_bx-sd;
-            .todo_item:nth-last-child(1) {
-                border-bottom: none;
-            }
+            // .todo_item:nth-last-child(1) {
+            //     border-bottom: none;
+            // }
             .todo_item {
                 border-bottom: 1px $lm-bod-clr solid;
                 .checklist_btn {
@@ -148,6 +165,24 @@ div .header {
                         background: $lm-bod-clr;
                     }
                 }
+            }
+        }
+    }
+    @media(min-width: 768px) {
+        .todo_stats {
+            background-color: $white-clr;
+            box-shadow: $todoUl_bx-sd;
+        }
+    }
+    @media(max-width: 767px) {
+        .todo_stats {
+            .stats_1 {
+                background-color: $white-clr;
+                box-shadow: $todoUl_bx-sd;
+            }
+            .stats_2 {
+                background-color: $white-clr;
+                box-shadow: $todoUl_bx-sd;
             }
         }
     }
@@ -172,9 +207,9 @@ div .header {
         .todo_ul {
             background-color: $dm-pri-clr;
             box-shadow: $todoUl_bx-sd;
-            .todo_item:nth-last-child(1) {
-                border-bottom: none;
-            }
+            // .todo_item:nth-last-child(1) {
+            //     border-bottom: none;
+            // }
             .todo_item {
                 border-bottom: 1px $dm-bod-clr solid;
                 color: $dm-todoInput-clr;
@@ -187,6 +222,61 @@ div .header {
                     }
                 }
             }
+        }
+    }
+    @media(min-width: 768px) {
+        .todo_stats {
+            background-color: $dm-pri-clr;
+            box-shadow: $todoUl_bx-sd;
+            color: $dm-sec-clr;
+            button {
+                color: $dm-sec-clr;
+            }
+        }
+    }
+    @media(max-width: 767px) {
+        .todo_stats {
+            .stats_1 {
+                background-color: $dm-pri-clr;
+                box-shadow: $todoUl_bx-sd;
+                color: $dm-sec-clr;
+            }
+            .stats_2 {
+                background-color: $dm-pri-clr;
+                box-shadow: $todoUl_bx-sd;
+                color: $dm-sec-clr;
+            }
+            button {
+                color: $dm-sec-clr;
+            }
+        }
+    }
+}
+
+@media(min-width: 768px) {
+    .todo_stats {
+        height: 4rem;
+    }
+}
+
+@media(max-width: 767px) {
+    .todo_stats {
+        .stats_1 {
+            height: 3rem;
+            align-items: center;
+            width: 100%;
+            max-width: 34rem;
+        }
+        .stats_2 {
+            margin-top: 3.125rem;
+            height: 3rem;
+            width: 100%;
+            max-width: 34rem;
+            border-radius: 5px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            // margin: 0 auto;
         }
     }
 }
