@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- new todo -->
+<!-- statsadd branch -->
 
 <head>
     <meta charset="UTF-8">
@@ -43,10 +44,21 @@
 
                 </ul>
             </div>
+            <div class="d-flex justify-content-between align-items-center todo_stats flex-column flex-md-row todo_stats_0">
+                <div class="d-flex justify-content-between stats_1">
+                    <!-- <p class="items_count px-2">0 Items Left</p> -->
+                    <button class="btn_c_completed d-block d-md-none d-lg-none">Clear Completed</button>
+                </div>
+                <div class="stats_2">
+                    <button class="btn_al">All</button>
+                    <button class="btn_active">Active</button>
+                    <button class="btn_completed">Completed</button>
+                </div>
+                <button class="d_btn_c_completed btn_completed d-none d-md-block">Clear completed</button>
+            </div>
         </main>
 
     </div>
-
     <!-- script -->
     <script src="index.js"></script>
 </body>
