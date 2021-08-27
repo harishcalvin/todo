@@ -263,7 +263,11 @@ div .header {
             box-shadow: 0px 4px 4px 0px #00000040;
     color: #5B5E7E;
   }
+  .dark_mode .todo_stats button:hover {
+    color: #E3E4F1;
+  }
   .dark_mode .todo_stats button {
+    font-weight: 700;
     color: #5B5E7E;
   }
 }
@@ -273,6 +277,12 @@ div .header {
     background-color: #25273D;
     -webkit-box-shadow: 0px 4px 4px 0px #00000040;
             box-shadow: 0px 4px 4px 0px #00000040;
+    color: #5B5E7E;
+  }
+  .dark_mode .todo_stats .stats_1 button:hover {
+    color: unset;
+  }
+  .dark_mode .todo_stats .stats_1 button {
     color: #5B5E7E;
   }
   .dark_mode .todo_stats .stats_2 {
@@ -301,6 +311,13 @@ div .header {
     width: 100%;
     max-width: 34rem;
   }
+  .todo_stats .stats_1 button:hover {
+    color: #E3E4F1;
+  }
+  .todo_stats .stats_1 button {
+    font-weight: 700;
+    color: #5B5E7E;
+  }
   .todo_stats .stats_2 {
     margin-top: 3.125rem;
     height: 3rem;
@@ -316,6 +333,10 @@ div .header {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+  }
+  .todo_stats .stats_2 button {
+    font-weight: 700;
+    color: #5B5E7E;
   }
 }
 

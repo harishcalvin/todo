@@ -16,6 +16,7 @@ $dm-todoInput-clr: #C8CBE7;
 $dm-bod-clr: #393A4B;
 $dm-bx-sd: 0px 35px 50px -15px #00000080;
 $dm-sec-clr: #5B5E7E;
+$dm-act-clr: #E3E4F1;
 html body {
     background-color: $lM-bg-clr;
 }
@@ -251,7 +252,11 @@ div .header {
             background-color: $dm-pri-clr;
             box-shadow: $todoUl_bx-sd;
             color: $dm-sec-clr;
+            button:hover {
+                color: $dm-act-clr;
+            }
             button {
+                font-weight: 700;
                 color: $dm-sec-clr;
             }
         }
@@ -262,6 +267,12 @@ div .header {
                 background-color: $dm-pri-clr;
                 box-shadow: $todoUl_bx-sd;
                 color: $dm-sec-clr;
+                button:hover {
+                    color: unset;
+                }
+                button {
+                    color: $dm-sec-clr;
+                }
             }
             .stats_2 {
                 background-color: $dm-pri-clr;
@@ -288,6 +299,13 @@ div .header {
             align-items: center;
             width: 100%;
             max-width: 34rem;
+            button:hover {
+                color: $dm-act-clr;
+            }
+            button {
+                font-weight: 700;
+                color: $dm-sec-clr;
+            }
         }
         .stats_2 {
             margin-top: 3.125rem;
@@ -299,6 +317,10 @@ div .header {
             align-items: center;
             display: flex;
             // margin: 0 auto;
+            button {
+                font-weight: 700;
+                color: $dm-sec-clr;
+            }
         }
     }
 }
