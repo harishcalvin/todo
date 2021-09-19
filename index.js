@@ -6,11 +6,12 @@ const bgImage = document.querySelector('#bcgImg'); //background image
 const userTodo = document.querySelector('#todoInput');
 const todoUl = document.querySelector('.todo_ul');
 const btn = document.querySelector('.click');
+const todoCount = document.querySelector('#itemLeft');
 
-modes.addEventListener('click', themes);
-btn.addEventListener('click', newTodo);
+modes.addEventListener('click', handleThemeChange);
+btn.addEventListener('click', createNewTodo);
 
-function themes() {
+function handleThemeChange() {
     //darkmode
     if (theme.classList.contains('light_mode')) {
         theme.classList.remove('light_mode');
@@ -30,7 +31,7 @@ function themes() {
     }
 }
 
-function newTodo(event) {
+function createNewTodo(event) {
     event.preventDefault();
     //tododiv
     const newTodo = document.createElement('li');
@@ -38,6 +39,7 @@ function newTodo(event) {
     newTodo.innerText = todo_list;
     newTodo.classList.add('todo_item', 'active');
     todoUl.appendChild(newTodo);
+    todoCount.innerText = todoUl.children.length;
     if (userTodo.value === " ") {
         return null
     } else {
@@ -78,11 +80,13 @@ function newTodo(event) {
                 </svg>`;
                     newTodo.classList.remove('active');
                     newTodo.classList.add('completedItem');
+                    todoCount.innerText = parseInt(todoCount.innerText) - 1;
                 } else {
                     newTodo.classList.contains('completedItem');
                     checkbox.innerHTML = '<svg class="checkedHover"></svg>';
                     newTodo.classList.remove('completedItem');
                     newTodo.classList.add('active');
+                    todoCount.innerText = parseInt(todoCount.innerText) + 1;
                 }
                 // newTodo.classList.toggle('completedItem');
             })
@@ -91,6 +95,7 @@ function newTodo(event) {
         deleteBtn.classList.add('delete_btn');
         deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
         newTodo.appendChild(deleteBtn);
+
         //delte
         deleteBtn.addEventListener('click', function() {
                 newTodo.classList.add('deleted');
