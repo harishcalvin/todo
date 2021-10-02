@@ -21,7 +21,7 @@ html body {
     background-color: $lM-bg-clr;
 }
 
-#moonIcon {
+#theme--icon {
     cursor: pointer;
     font-size: 21px;
 }
@@ -77,7 +77,7 @@ div .header {
     margin: 0 10px 0 10px;
 }
 
-.todo_stats {
+.todo-stats {
     margin: 0 auto;
     padding: 0rem;
     width: 100%;
@@ -93,15 +93,15 @@ div .header {
     }
 }
 
-.todo_container {
-    .todo_ul {
+.todo--items {
+    .todo--items__lists {
         border-radius: 4px 4px 0px 0px;
         width: 100%;
         max-width: 34rem;
         padding: 0px;
         margin-top: 2rem;
         margin-bottom: 0px;
-        .todo_item {
+        .todo--item {
             list-style: none;
             padding: 10px 0;
             font-size: 18px;
@@ -152,14 +152,11 @@ div .header {
             color: $lm-todoInput-clr;
         }
     }
-    .todo_container {
-        .todo_ul {
+    .todo--items {
+        .todo--items__lists {
             background-color: $white-clr;
             box-shadow: $todoUl_bx-sd;
-            // .todo_item:nth-last-child(1) {
-            //     border-bottom: none;
-            // }
-            .todo_item {
+            .todo--item {
                 border-bottom: 1px $lm-bod-clr solid;
                 .checkedHover:hover {
                     background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%) border-box;
@@ -171,14 +168,14 @@ div .header {
         }
     }
     @media(min-width: 768px) {
-        .todo_stats {
+        .todo-stats {
             background-color: $white-clr;
             box-shadow: $todoUl_bx-sd;
             button {
                 color: $lm-sec-clr;
                 font-weight: 700;
             }
-            .stats_2 {
+            .todo-stats__web {
                 button:hover {
                     color: $lm-cls-clr;
                 }
@@ -190,15 +187,15 @@ div .header {
         }
     }
     @media(max-width: 767px) {
-        .todo_stats {
-            .stats_1 {
+        .todo-stats {
+            .todo-stats__phone {
                 background-color: $white-clr;
                 box-shadow: $todoUl_bx-sd;
                 button {
                     color: $lm-sec-clr;
                 }
             }
-            .stats_2 {
+            .todo-stats__web {
                 background-color: $white-clr;
                 box-shadow: $todoUl_bx-sd;
                 button:hover {
@@ -228,14 +225,11 @@ div .header {
             color: $dm-todoInput-clr;
         }
     }
-    .todo_container {
-        .todo_ul {
+    .todo--items {
+        .todo--items__lists {
             background-color: $dm-pri-clr;
             box-shadow: $todoUl_bx-sd;
-            // .todo_item:nth-last-child(1) {
-            //     border-bottom: none;
-            // }
-            .todo_item {
+            .todo--item {
                 border-bottom: 1px $dm-bod-clr solid;
                 color: $dm-todoInput-clr;
                 .checkedHover:hover {
@@ -248,7 +242,7 @@ div .header {
         }
     }
     @media(min-width: 768px) {
-        .todo_stats {
+        .todo-stats {
             background-color: $dm-pri-clr;
             box-shadow: $todoUl_bx-sd;
             color: $dm-sec-clr;
@@ -262,8 +256,8 @@ div .header {
         }
     }
     @media(max-width: 767px) {
-        .todo_stats {
-            .stats_1 {
+        .todo-stats {
+            .todo-stats--phone {
                 background-color: $dm-pri-clr;
                 box-shadow: $todoUl_bx-sd;
                 color: $dm-sec-clr;
@@ -274,7 +268,7 @@ div .header {
                     color: $dm-sec-clr;
                 }
             }
-            .stats_2 {
+            .todo-stats__web {
                 background-color: $dm-pri-clr;
                 box-shadow: $todoUl_bx-sd;
                 color: $dm-sec-clr;
@@ -287,14 +281,14 @@ div .header {
 }
 
 @media(min-width: 768px) {
-    .todo_stats {
+    .todo-stats {
         height: 4rem;
     }
 }
 
 @media(max-width: 767px) {
-    .todo_stats {
-        .stats_1 {
+    .todo-stats {
+        .todo-stats__phone {
             height: 3rem;
             align-items: center;
             width: 100%;
@@ -307,7 +301,7 @@ div .header {
                 color: $dm-sec-clr;
             }
         }
-        .stats_2 {
+        .todo-stats__web {
             margin-top: 3.125rem;
             height: 3rem;
             width: 100%;

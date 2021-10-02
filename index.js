@@ -1,12 +1,12 @@
 // new todo
-const modes = document.getElementById('moonIcon'); //moonIcon
+const modes = document.getElementById('theme--icon'); //moonIcon
 const theme = document.querySelector('.light_mode'); //div lightmode, todoSection
 const body = document.querySelector('body'); //body
-const bgImage = document.querySelector('#bcgImg'); //background image
+const bgImage = document.querySelector('#bck--img'); //background image
 const userTodo = document.querySelector('#todoInput');
-const todoUl = document.querySelector('.todo_ul');
+const todoUl = document.querySelector('.todo--items__lists');
 const btn = document.querySelector('.click');
-const todoCount = document.querySelector('#itemLeft');
+const todoCount = document.querySelector('#todo-stats__items__count');
 
 modes.addEventListener('click', handleThemeChange);
 btn.addEventListener('click', createNewTodo);
@@ -33,42 +33,27 @@ function handleThemeChange() {
 
 function createNewTodo(event) {
     event.preventDefault();
+    if (userTodo.value === "") {
+        return null
+    }
     //tododiv
     const newTodo = document.createElement('li');
     const todo_list = `${userTodo.value}`;
     newTodo.innerText = todo_list;
-    newTodo.classList.add('todo_item', 'active');
+    newTodo.classList.add('todo--item', 'active');
     todoUl.appendChild(newTodo);
     todoCount.innerText = todoUl.children.length;
-    if (userTodo.value === " ") {
-        return null
-    } else {
-        //checkbox button 
-        const checkbox = document.createElement('button');
-        checkbox.classList.add('checklist_btn');
-        checkbox.innerHTML = '<svg class="checkedHover"></svg>';
-        // const checkboxIcon = document.querySelector('#checkList');
-        newTodo.prepend(checkbox);
+    //checkbox button 
+    const checkbox = document.createElement('button');
+    checkbox.classList.add('checklist_btn');
+    checkbox.innerHTML = '<svg class="checkedHover"></svg>';
+    // const checkboxIcon = document.querySelector('#checkList');
+    newTodo.prepend(checkbox);
 
-        //checklist
-        checkbox.addEventListener('click', function() {
-                // const item = e.target;
-
-                // const icon = document.querySelector('.check_list');
-                // if (item.classList[1] === "bi-circle") {
-                //     const a = item.parentElement;
-                //     item.classList.remove('bi-circle');
-                //     item.classLi st.add('bi-check2-circle');
-
-                // } else {
-                //     item.classList.remove('bi-check2-circle');
-                //     item.classList.add('bi-circle');
-                // }
-                // icon.classList.toggle('bi-check2-circle');
-
-                // icon.classList.toggle('bi-check2-circle');
-                if (newTodo.classList.contains('active')) {
-                    checkbox.innerHTML = `    <svg class="checkedSvg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    //checklist
+    checkbox.addEventListener('click', function() {
+            if (newTodo.classList.contains('active')) {
+                checkbox.innerHTML = `<svg class="checkedSvg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="12" cy="12" r="12" fill="url(#paint0_linear)"/>
                 <path d="M8 12.3041L10.6959 15L16.6959 9" stroke="white" stroke-width="2"/>
                 <defs>
@@ -78,87 +63,78 @@ function createNewTodo(event) {
                 </linearGradient>
                 </defs>
                 </svg>`;
-                    newTodo.classList.remove('active');
-                    newTodo.classList.add('completedItem');
-                    todoCount.innerText = parseInt(todoCount.innerText) - 1;
-                } else {
-                    newTodo.classList.contains('completedItem');
-                    checkbox.innerHTML = '<svg class="checkedHover"></svg>';
-                    newTodo.classList.remove('completedItem');
-                    newTodo.classList.add('active');
-                    todoCount.innerText = parseInt(todoCount.innerText) + 1;
-                }
-                // newTodo.classList.toggle('completedItem');
-            })
-            //delete button
-        const deleteBtn = document.createElement('button');
-        deleteBtn.classList.add('delete_btn');
-        deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
-        newTodo.appendChild(deleteBtn);
-
-        //delte
-        deleteBtn.addEventListener('click', function() {
-                newTodo.classList.add('deleted');
-                newTodo.remove();
-            })
-            // stats
-            //Item count 
-
-        // const statsOne = document.querySelector('#itemLeft');
-        // const todoList = document.getElementsByClassName('todo_item');
-        // statsOne.innerHTML = todoList.length;
-        // statsOne.appendChild(statsCount);
-
+                newTodo.classList.remove('active');
+                newTodo.classList.add('completedItem');
+                todoCount.innerText = parseInt(todoCount.innerText) - 1;
+            } else {
+                newTodo.classList.contains('completedItem');
+                checkbox.innerHTML = '<svg class="checkedHover"></svg>';
+                newTodo.classList.remove('completedItem');
+                newTodo.classList.add('active');
+                todoCount.innerText = parseInt(todoCount.innerText) + 1;
+            }
+            // newTodo.classList.toggle('completedItem');
+        })
+        //delete button
+    const deleteBtn = document.createElement('button');
+    deleteBtn.classList.add('delete_btn');
+    deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
+    newTodo.appendChild(deleteBtn);
+    //delte
+    deleteBtn.addEventListener('click', function() {
+            newTodo.classList.add('deleted');
+            newTodo.remove();
+            if (!newTodo.classList.contains('completedItem')) {
+                todoCount.innerText = parseInt(todoCount.innerText) - 1;
+            }
+        })
         // filter
-        const all = document.querySelector('.btn_al');
-        const active = document.querySelector('.btn_active');
-        const complete = document.querySelector('.btn_completed');
+    const all = document.querySelector('.btn--all');
+    const active = document.querySelector('.btn--active');
+    const complete = document.querySelector('.btn--completed');
 
-        all.addEventListener('click', filterAll);
-        active.addEventListener('click', filterActive);
-        complete.addEventListener('click', filterComplete);
+    all.addEventListener('click', filterAll);
+    active.addEventListener('click', filterActive);
+    complete.addEventListener('click', filterComplete);
 
-        function filterAll() {
-            if (newTodo.classList.contains('todo_item')) {
-                newTodo.style.display = 'block';
+    function filterAll() {
+        if (newTodo.classList.contains('todo--item')) {
+            newTodo.style.display = 'block';
 
-            } else {
-                newTodo.style.display = 'none';
-            }
-        }
-
-        function filterActive() {
-            if (newTodo.classList.contains('active')) {
-                newTodo.style.display = "block";
-            } else {
-                newTodo.style.display = "none";
-            }
-        }
-
-        function filterComplete() {
-            // if (newTodo.classList.contains('todo_item')) {
-            //     newTodo.style.display = 'none';
-            // }
-            if (newTodo.classList.contains('completedItem')) {
-                newTodo.style.display = 'block';
-            } else {
-                newTodo.style.display = 'none';
-            }
-
-        }
-
-        //clear completed
-        const clearCompleted = document.querySelector('.btn_c_completed');
-        const dClearCompleted = document.querySelector('.d_btn_c_completed');
-        clearCompleted.addEventListener('click', deleteCompleted);
-        dClearCompleted.addEventListener('click', deleteCompleted);
-
-        function deleteCompleted() {
-            if (newTodo.classList.contains('completedItem')) {
-                newTodo.remove();
-            }
+        } else {
+            newTodo.style.display = 'none';
         }
     }
+
+    function filterActive() {
+        if (newTodo.classList.contains('active')) {
+            newTodo.style.display = "block";
+        } else {
+            newTodo.style.display = "none";
+        }
+    }
+
+    function filterComplete() {
+        if (newTodo.classList.contains('completedItem')) {
+            newTodo.style.display = 'block';
+        } else {
+            newTodo.style.display = 'none';
+        }
+
+    }
+
+    //clear completed
+    const clearCompleted = document.querySelector('.todo-stats--phone-display');
+    const dClearCompleted = document.querySelector('.btn--desk--clear--complete');
+    clearCompleted.addEventListener('click', deleteCompleted);
+    dClearCompleted.addEventListener('click', deleteCompleted);
+
+    function deleteCompleted() {
+        if (newTodo.classList.contains('completedItem')) {
+            newTodo.remove();
+        }
+    }
+
     //end
 
 
