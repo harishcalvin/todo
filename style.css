@@ -176,6 +176,11 @@ div .header {
   background: #E3E4F1;
 }
 
+.light_mode .todo-stats .todo-stats__phone .todo-stats__items__count__text {
+  color: #9495A5;
+  font-weight: 700;
+}
+
 @media (min-width: 768px) {
   .light_mode .todo-stats {
     background-color: #ffffff;
@@ -256,6 +261,10 @@ div .header {
   background: #393A4B;
 }
 
+.dark_mode .todo-stats .todo-stats__phone .todo-stats__items__count__text {
+  color: #5B5E7E;
+}
+
 @media (min-width: 768px) {
   .dark_mode .todo-stats {
     background-color: #25273D;
@@ -300,6 +309,9 @@ div .header {
   .todo-stats {
     height: 4rem;
   }
+  .todo-stats .todo-stats__phone .todo-stats__items__count__text {
+    font-weight: 700;
+  }
 }
 
 @media (max-width: 767px) {
@@ -312,7 +324,7 @@ div .header {
     max-width: 34rem;
   }
   .todo-stats .todo-stats__phone button:hover {
-    color: #E3E4F1;
+    color: #5B5E7E;
   }
   .todo-stats .todo-stats__phone button {
     font-weight: 700;
