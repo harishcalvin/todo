@@ -21,9 +21,54 @@
         background-color: $lM-bg-clr;
     }
     
-    #theme--icon {
-        cursor: pointer;
-        font-size: 21px;
+    // #theme--icon {
+    //     cursor: pointer;
+    //     font-size: 21px;
+    // }
+    body {
+        transition: background 0.2s linear;
+    }
+    
+    .checkbox {
+        opacity: 0;
+        position: absolute;
+    }
+    
+    .label {
+        width: 50px;
+        height: 26px;
+        display: flex;
+        border-radius: 50px;
+        background-color: #242D44;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    
+    .fa-moon {
+        color: #dfe7fd;
+        margin-left: 12px;
+    }
+    
+    .fa-sun {
+        color: #ffee99;
+    }
+    
+    .ball {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        border-radius: 50%;
+        width: 22px;
+        height: 22px;
+        background-color: #fff6cc;
+        transition: transform 0.2s linear;
+    }
+    
+    .checkbox:checked+.label .ball {
+        transform: translateX(24px);
+        background-color: #E5E4E1;
     }
     
     div .header {
@@ -140,7 +185,7 @@
                 background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%) border-box;
             }
             input::selection {
-                background: #55DDFF;
+                background: #577d86;
                 color: $white-clr;
             }
             input::placeholder {
@@ -151,6 +196,7 @@
             }
         }
         .todo--items {
+            transition: background 2s linear;
             .todo--items__lists {
                 background-color: $white-clr;
                 box-shadow: $todoUl_bx-sd;
