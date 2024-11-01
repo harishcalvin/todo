@@ -13,5 +13,5 @@ Checkout out the [link](https://harishcalvin.github.io/todo/) and share your fee
 
 ## Preview
 
-![With todo items in active state](./images/todo-4.png)
+![With todo items in active state](./images/todo-2.png)
 
