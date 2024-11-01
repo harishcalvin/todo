@@ -1,77 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- new todo -->
-<!-- statsadd branch -->
+  <!-- new todo -->
+  <!-- statsadd branch -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo App</title>
     <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
     <!-- bootrap icon -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
     <!-- fontawesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
     <!-- styleCss -->
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body>
     <div class="bcg-img">
-        <img src="./images/bg-desktop-light.jpg" class="img-fluid" id="bck--img" alt="">
+      <img
+        src="./images/bg-desktop-light.jpg"
+        class="img-fluid"
+        id="bck--img"
+        alt="todo-app mountain scene background image"
+      />
     </div>
     <div class="container light_mode" id="lightMode">
-        <div class="d-flex justify-content-around align-items-center header pt-3 pt-md-5">
-            <h1 class="title">Todo</h1>
-            <div>
-                <input type="checkbox" name="" id="theme--icon" class="checkbox">
+      <div
+        class="d-flex justify-content-around align-items-center header pt-3 pt-md-5"
+      >
+        <h1 class="title">Todo</h1>
+        <div>
+          <input type="checkbox" name="" id="theme--icon" class="checkbox" />
 
-                <label for="theme--icon" class="label">
-                    <i class="fas fa-moon"></i>
-                    <i class="fas fa-sun"></i>
-                   <div class="ball"></div>
-               </label>
-
-
-            </div>
-            <!-- <i class="bi bi-moon-fill" id="theme--icon"></i> -->
+          <label for="theme--icon" class="label">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <div class="ball"></div>
+          </label>
         </div>
-        <!-- todo app -->
-        <main class="d-flex justify-content-center flex-column">
-            <form>
-                <div class="d-flex align-items-center justify-content-center" id="todo">
-                    <svg class="checkbox"></svg>
-                    <input type="text" name="" id="todoInput" placeholder="Create a new todo...">
-                    <button class="click" style="opacity: 0;"></button>
-                </div>
-            </form>
+        <!-- <i class="bi bi-moon-fill" id="theme--icon"></i> -->
+      </div>
+      <!-- todo app -->
+      <main class="d-flex justify-content-center flex-column">
+        <form>
+          <div
+            class="d-flex align-items-center justify-content-center"
+            id="todo"
+          >
+            <svg class="checkbox"></svg>
+            <input
+              type="text"
+              name=""
+              id="todoInput"
+              placeholder="Create a new todo..."
+            />
+            <button class="click" style="opacity: 0"></button>
+          </div>
+        </form>
 
-            <!-- todo js -->
-            <div class="d-flex justify-content-center todo--items">
-                <ul class="d-flex flex-column todo--items__lists">
-
-                </ul>
-            </div>
-            <!-- todo stats -->
-            <div class="d-flex justify-content-between align-items-center flex-column flex-md-row todo-stats">
-                <div class="d-flex justify-content-between todo-stats__phone">
-                    <p class="todo-stats__items__count__text px-2">
-                        <span id="todo-stats__items__count">0</span> Items Left</p>
-                    <button class="todo-stats--phone-display d-block d-md-none d-lg-none">Clear Completed</button>
-                </div>
-                <div class="todo-stats__web">
-                    <button class="btn--all">All</button>
-                    <button class="btn--active">Active</button>
-                    <button class="btn--completed">Completed</button>
-                </div>
-                <button class="btn--desk--clear--complete d-none d-md-block">Clear completed</button>
-            </div>
-        </main>
+        <!-- todo js -->
+        <div class="d-flex justify-content-center todo--items">
+          <ul class="d-flex flex-column todo--items__lists"></ul>
+        </div>
+        <!-- todo stats -->
+        <div
+          class="d-flex justify-content-between align-items-center flex-column flex-md-row todo-stats"
+        >
+          <div class="d-flex justify-content-between todo-stats__phone">
+            <p class="todo-stats__items__count__text px-2">
+              <span id="todo-stats__items__count">0</span> Items Left
+            </p>
+            <button
+              class="todo-stats--phone-display d-block d-md-none d-lg-none"
+            >
+              Clear Completed
+            </button>
+          </div>
+          <div class="todo-stats__web">
+            <button class="btn--all">All</button>
+            <button class="btn--active">Active</button>
+            <button class="btn--completed">Completed</button>
+          </div>
+          <button class="btn--desk--clear--complete d-none d-md-block">
+            Clear completed
+          </button>
+        </div>
+      </main>
     </div>
     <!-- script -->
     <script src="index.js"></script>
-</body>
-
+  </body>
 </html>
